@@ -1,0 +1,7 @@
+<view class="header">
+  <view class="left">{{title}}</view>
+  <view class="right" wx:if="{{showMore}}" bind:tap="onMoreTap">
+    <view class="text">{{moreText}}</view>
+    <van-icon name="arrow" />
+  </view>
+</view>

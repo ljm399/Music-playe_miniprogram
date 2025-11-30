@@ -1,0 +1,16 @@
+<view class="detail-menu">
+  <block wx:for="{{tagSongList}}" wx:key="cat">
+    <view class="tag-area">
+      <view class="wrap-tag">
+        <area-header title="{{item.cat}}" showMore="{{false}}"></area-header>
+      </view>
+      <view class="song-list">
+        <block wx:for="{{item.playlists}}" wx:key="id" wx:for-item="iten">
+          <view class="song-item">
+            <song-item-v2 songData="{{iten}}"></song-item-v2>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

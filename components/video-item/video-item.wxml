@@ -1,0 +1,13 @@
+<wxs src="/utils/format.wxs" module="fmt"/>
+<view class="video-item">
+  <view class="cover">
+    <image class="img" src="{{videoItem.cover}}" mode="widthFix"></image>
+    <view class="count">
+      <view class="play-count">{{fmt.changeCount(videoItem.playCount)}}</view>
+      <view class="duration">{{fmt.changeTime(videoItem.mv.videos[0].duration)}}</view>
+    </view>
+  </view>
+  <view class="info">
+    <text class="title">{{videoItem.name}}-{{videoItem.artistName}}</text>
+  </view>
+</view>

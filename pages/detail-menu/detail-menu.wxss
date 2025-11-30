@@ -1,0 +1,13 @@
+Page{
+  box-sizing: border-box;
+  padding:0 20rpx;
+}
+.tag-area .song-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.tag-area .song-list .song-item {
+  width: 48%;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,32 @@
+.nav{
+  display: flex;
+  height:88rpx;
+  align-items: center;
+  color: #fff;
+}
+.nav .left,.nav .right {
+  width: 100rpx;
+  text-align: center;
+}
+.nav .left .img{
+  width: 30rpx;
+}
+.nav .center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 使用默认值公式 */
+.default{
+  display: none; 
+}
+.slot:empty + .default{
+  display: flex;
+}
+
+
+
+
+

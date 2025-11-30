@@ -1,0 +1,68 @@
+Page {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 40rpx;
+  background-color: #fafafa;
+}
+
+/* 复用样式 */
+.section {
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+/* 个人信息 */
+.avatar-box::after{
+  border: none !important;
+}
+.avatar{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.nickname-box{
+  display: flex;
+  align-items: center;
+  gap: 170rpx;
+  border: 1px solid #f2f2f2;
+  vertical-align: middle;
+}
+.nickname-box .introduce{
+ font-weight: bold;
+} 
+
+/* 个人收集 */
+.profile-box{
+  display: flex;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+.profile-box .box-name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+}
+.profile-box .box-name .img{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/* 我的歌单 */
+.profile-playlist .header{
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.profile-playlist .playList .item-box{
+  margin: 20rpx 0;
+}
+
+/* 提示框 */
+.van-dialog .van-input{
+  margin: 20rpx;
+  padding: 20rpx;
+  border: 1px solid #f2f2f2 !important;
+}

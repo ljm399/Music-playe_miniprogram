@@ -1,0 +1,19 @@
+.detail-song .detail-header {
+  margin-bottom: 40rpx;
+}
+.detail-song .title {
+  font-size: 40rpx;
+  font-weight: bold;
+  padding:  30rpx;
+}
+.detail-song .song-list .song-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.detail-song .song-list .song-item .more{
+  font-size: 40rpx;
+  margin-right: 30rpx;
+}

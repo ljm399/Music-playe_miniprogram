@@ -1,0 +1,14 @@
+<view class="nav">
+  <view class="left" bind:tap="handleLeftTap">
+    <image class="img" src="/assets/images/icons/lt.png" mode="widthFix"></image>
+  </view>
+  <view class="center">
+    <view class="slot">
+      <slot name="center-item"></slot>
+    </view>
+    <view class="default">
+      默认标题
+    </view> 
+  </view>
+  <view class="right"></view>
+</view>

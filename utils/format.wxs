@@ -1,0 +1,56 @@
+//练习:大数字转1亿,时间转60进制
+function changeCount(count) {
+  var count = parseInt(count)
+  //Number()有问题!
+  if (count >=100000000) {
+    return (count / 100000000).toFixed(1) + '亿'
+  }else if (count >= 10000) {
+     return (count / 10000).toFixed(1) + '万'
+  }else if (count >= 1000) {
+     return (count / 1000).toFixed(1) + '千'
+  }else
+     return count
+}
+
+//时间转60进制
+function changeTime(time) {
+  var time = time/1000
+  var minute = Math.floor( time / 60 )
+  var second = Math.floor( time % 60 )
+  return padLeft(minute) +':'+ padLeft(second)
+}
+
+//padLeft方法一
+// function padLeft(time) {
+//   if ( (time+'').length >= 2 ) {
+//     //不把time转为字符串用不了.length
+//     return  time
+//   }else
+//   return '0' + time
+// }
+
+//padLeft方法二
+function padLeft(time) {
+  var time = time + ''
+  return ('00'+ time).slice(time.length)
+}
+
+//reduce方法-计算总价(传入的是数组),是books.reduce你无books
+function totalPrice(books) {
+  return books.reduce(function(preValue,item) {
+    return preValue + item.price
+  },0)
+}
+
+function formatPrice(price) {
+    return "¥"+price
+}
+  
+  //不可以是用em6如箭头函数
+  //必须导出才能使用,同时里面可以用//
+module.exports = {
+    formatPrice : formatPrice,
+    totalPrice : totalPrice,
+    changeCount : changeCount,
+    changeTime : changeTime
+  }

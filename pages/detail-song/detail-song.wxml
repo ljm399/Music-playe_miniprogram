@@ -1,0 +1,17 @@
+<view class="detail-song" wx:if="{{songInfos.tracks.length}}">
+  <view class="detail-header" wx:if="{{name === 'menu'}}">
+    <detail-header detailInfo="{{songInfos}}"></detail-header>
+  </view>
+  <view class="title" wx:else>
+    {{songInfos.name}}
+  </view>
+
+  <view class="song-list">
+    <block wx:for="{{songInfos.tracks}}" wx:key="id">
+      <view class="song-item">
+        <song-item-v3 songInfo="{{item}}" index="{{index}}" bind:tap="onDetailSongTap" data-index="{{index}}"></song-item-v3>
+        <van-icon name="more-o" class="more" catch:tap="onMoreTap" data-item="{{item}}"/>
+      </view>
+    </block>
+  </view>
+</view>

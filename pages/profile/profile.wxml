@@ -1,0 +1,51 @@
+<button class="avatar-box" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" src="{{avatarUrl ? avatarUrl : '/assets/images/tabbar/Profile.png'}}"></image>
+</button> 
+<view class="nickname-box section">
+  <text class="introduce">昵称</text>
+  <input type="nickname" model:value="{{nickname}}" class="weui-input" placeholder="请输入昵称" bindnicknamereview="onNicknameTap"/>
+</view>
+
+<view class="profile-box section" wx:if="{{isLoggedIn}}">
+  <block wx:for="{{profileBox}}" wx:key="item">
+    <view class="box-name" bindtap="onProfileBoxTap" data-name="{{item.name}}" data-text="{{item.text}}">
+      <image class="img" src="/assets/images/profile/{{item.name}}.png"/>
+      <text>{{item.text}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="profile-menu" wx:if="{{isLoggedIn}}">
+  <area-header title="我的歌单" showMore="{{false}}" />
+  <view class="profile-playlist section">
+    <view class="header">
+      <view class="left">创建歌单</view>
+      <van-icon name="plus" bind:click="onCreatePlaylistTap"/>
+    </view>
+    <view class="playList">
+      <block wx:for="{{menuList}}" wx:key="_id">
+        <view class="item-box">
+          <song-menu-v2 
+            itemData="{{item}}" 
+            bind:delete="onDeleteTap" 
+            bindtap="onProfileMenuTap" 
+            data-id="{{item._id}}"
+          />
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<van-dialog
+  class="van-dialog"
+  use-slot
+  title="创建歌单"
+  show="{{ show }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="onConfirm"
+>
+  <input class="van-input" type="text" placeholder="请输入歌单名称" model:value="{{menuName}}"/>
+</van-dialog>
+

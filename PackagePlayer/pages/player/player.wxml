@@ -1,0 +1,84 @@
+<wxs src="/utils/format.wxs" module="fmt"></wxs>
+<image class="bg" src="{{songDetail[0].al.picUrl}}" />
+<view class="mask"></view>
+<view class="player">
+  <view class="player-top" style="height:{{statusBarHeight}}px;"></view>
+  <view class="navbar">
+    <nav-bar bind:lefttap="handleLeftTap">
+      <view slot="center-item" class="tabs">
+        <block wx:for="{{tabsArr}}" wx:key="index">
+          <view class="songInfo {{activeIndex === index ? 'active' : ''}}" bindtap="handleTabClick" data-index="{{index}}">{{item}}</view>
+          <view class="line" wx:if="{{tabsArr.length-1 !== index}}">|</view>  
+        </block>
+      </view>
+    </nav-bar>
+  </view>
+
+  <view class="content" >
+    <swiper 
+      class="swiper"  
+      style="height:{{contentHeight}}px;"
+      bindchange="handleSwiperChange"
+      current="{{activeIndex}}"
+    >
+      <swiper-item class="swiper-song" >
+        <view class="cover">
+          <image class="img" src="{{songDetail[0].al.picUrl}}" mode="widthFix"></image>
+        </view>
+        <view class="song-info">
+          <view class="name">{{songDetail[0].name}}</view>
+          <view class="artist">{{songDetail[0].ar[0].name}}</view>
+          <view class="lyric">{{lyric}}</view>
+        </view>
+        <view class="progress">
+          <slider 
+           block-size="12"
+           style="margin: 0 20rpx;"
+           value="{{sliderValue}}"
+           bindchange="handleSliderChange"
+           bindchanging="handleSliderChanging"
+           />
+          <view class="time">
+            <view class="currentTime">{{fmt.changeTime(currentTime)}}</view>
+            <view class="totalTime">{{fmt.changeTime(duration)}}</view>
+          </view>
+        </view>
+        <view class="controls">
+          <view class="mode" bindtap="onChangeModeTap">
+            <image src="/assets/images/music/{{playModes[modeIndex]}}_icon.png"  class="img"/>
+          </view>
+          <view class="prev" bindtap="onPrevTap">
+            <image src="/assets/images/music/prev_icon.png"  class="img"/>
+          </view>
+          <view class="play {{isPlay ? '' : 'enlargeImg'}}" bind:tap="handlePlayTap">
+            <image src="/assets/images/music/{{isPlay ? 'play' : 'pause'}}_icon.png"  class="img"/>
+          </view>
+          <view class="next" bindtap="onNextTap">
+            <image src="/assets/images/music/next_icon.png"  class="img"/>
+          </view>
+          <view class="playlist">
+            <image src="/assets/images/music/playlist_icon.png"  class="img"/>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item class="swiper-lyric">
+        <scroll-view 
+          class="lyrics" 
+          scroll-y
+          scroll-top="{{lyricScrollTop}}"
+          scroll-with-animation
+          >
+          <block wx:for="{{lyricsArr}}" wx:key="time">
+            <view 
+              class="lyrics-item {{index === currentLyricIndex ? 'active' : ''}}"
+
+              style="padding-top:{{index===0?contentHeight/2-30+'px':'0'}};padding-bottom:{{index===lyricsArr.length-1?contentHeight/2-70+'px':'0'}};"
+            >
+            {{item.lyric}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

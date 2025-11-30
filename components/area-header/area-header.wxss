@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx 0;
+  align-items: center;
+}
+.header .left {
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.header .right {
+  color: #999;
+  display: flex;
+}
+.header .right .text {
+  margin-right: 10rpx;
+}

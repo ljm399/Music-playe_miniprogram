@@ -1,0 +1,33 @@
+<wxs src="/utils/format.wxs" module="fmt"></wxs>
+<view class="detail-header">
+  <view class="bg-img" style="background: url({{detailInfo.backgroundCoverUrl}}) no-repeat center center/120%"></view>
+  <view class="mask"></view>
+  <view class="infos">
+    <view class="left">
+      <image class="img" src="{{detailInfo.coverImgUrl}}" />
+    </view>
+    <view class="right">
+      <view class="title">{{detailInfo.name}}</view>
+      <view class="author">
+        <view class="avatar">
+          <image class="img" src="{{detailInfo.creator.avatarUrl}}" mode="widthFix"/>
+        </view>
+        <view class="name">{{detailInfo.creator.nickname}}</view>
+      </view>
+      <view class="desc">简介:{{detailInfo.description}}</view>
+    </view>
+  </view>
+  <view class="operations">
+    <view class="favor">
+      <view class="icon">
+        <image class="img" src="/assets/images/icons/favor_icon.png" />
+      </view>
+      <view class="num">{{fmt.changeCount(detailInfo.playCount)}}</view>
+    </view>
+    <view class="share">
+      <view class="icon">
+        <image class="img" src="/assets/images/icons/share_icon.png" />
+      </view>
+    </view>
+  </view>
+</view>

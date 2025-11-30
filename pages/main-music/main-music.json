@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "area-header": "../../components/area-header/area-header",
+    "song-item-v1": "../../components/song-item-v1/song-item-v1",
+    "song-item-v2": "../../components/song-item-v2/song-item-v2",
+    "song-menu": "../../components/song-menu/song-menu",
+    "ranking-item": "../../components/ranking-item/ranking-item"
+  },
+  "navigationBarTitleText": "音乐"
+}

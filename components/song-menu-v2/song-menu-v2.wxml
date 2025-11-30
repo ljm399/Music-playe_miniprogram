@@ -1,0 +1,15 @@
+<view class="song-menu-v2">
+  <view class="left">
+    <view class="cover">
+      <image class="img" wx:if="{{itemData.songList.length}}" src="{{itemData.songList[0].al.picUrl}}"></image>
+      <image wx:else class="img" src="/assets/images/profile/song_album.png"></image>
+    </view>
+    <view class="info">
+      <view class="name">{{itemData.name}}</view>
+      <view class="count">{{itemData.songList.length}}首</view>
+    </view>
+  </view>
+  <view class="right" catch:tap="onDeleteTap">
+    <van-icon name="delete-o" />
+  </view>
+</view>

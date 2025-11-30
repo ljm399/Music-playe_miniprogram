@@ -1,0 +1,17 @@
+<wxs src="../../utils/format.wxs" module="fmt"></wxs>
+<view class="ranking-item" bind:tap="onRankingItemTap" wx:if="{{itemData.tracks.length}}">
+  <view class="left">
+    <view class="rank-name">{{itemData.name}}</view>
+    <view class="song-ranking">
+      <block wx:for="{{3}}" wx:key="index" wx:for-item="i">
+        <view class="song">
+          {{i + 1}}-{{itemData.tracks[i].name}} - {{itemData.tracks[i].ar[0].name}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="right">
+    <image class="img" src="{{itemData.coverImgUrl}} " mode="widthFix"/>
+    <text class="play-count">{{fmt.changeCount(itemData.playCount)}}</text>
+  </view>        
+</view>

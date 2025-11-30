@@ -1,0 +1,117 @@
+<van-search
+  placeholder="请输入搜索关键词"
+  shape="round"
+  background="#fafafa"
+  bind:tap="onSearchFocus"
+  disabled="true"
+  wx:if="{{bannerList.length}}"
+/>
+<swiper 
+  class="swiper" 
+  indicator-dots="true" 
+  style="height:{{swiperHeight}}px"
+  >
+  <block wx:for="{{bannerList}}" wx:key="targetId">
+    <swiper-item class="swiper-item">
+      <image 
+        class="swiper-img" 
+        src="{{item.pic}}" 
+        mode="widthFix"
+        bindload="onSwiperImgLoad"
+      ></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 推荐歌曲 -->
+<view class="recommend-area" wx:if="{{recommendSongs.length && bannerList.length}}">
+  <view class="area-header">  
+    <area-header title="推荐歌曲" moreText="更多" bind:moretap="onRecommendMoreTap"></area-header>
+  </view>
+  <view class="recommend-list">
+    <block wx:for="{{recommendSongs}}" wx:key="id">
+      <song-item-v1 songData="{{item}}" class="recommend-item" bind:tap="onSongV1Tap" data-index="{{index}}"></song-item-v1>
+    </block>
+  </view>
+</view>
+
+<!-- 热门歌单和推荐歌单 不是推荐歌曲 -->
+<!-- <view class="hot-song">
+  <view class="area-header">  
+    <area-header title="热门歌单" moreText="更多" ></area-header>
+  </view>
+  <scroll-view 
+    class="hot-list" 
+    scroll-x
+    enable-flex
+    style="width: {{screenWidth}}px;"
+    >
+    <block wx:for="{{hotSongList}}" wx:key="id">
+      <view class="hot-item">
+        <song-item-v2 songData="{{item}}"></song-item-v2>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="hot-song">
+  <view class="area-header">  
+    <area-header title="推荐歌单" moreText="更多" ></area-header>
+  </view>
+  <scroll-view 
+    class="hot-list" 
+    scroll-x
+    enable-flex
+    style="width: {{screenWidth}}px;"
+    >
+    <block wx:for="{{recommendSongList}}" wx:key="id">
+      <view class="hot-item">
+        <song-item-v2 songData="{{item}}"></song-item-v2>
+      </view>
+    </block>
+  </scroll-view>
+</view> -->
+<!-- 封装推荐歌单和热门歌单为组件 -->
+<song-menu title="推荐歌单" moreText="更多" recommendSongList="{{recommendSongList}}" wx:if="{{recommendSongList.length && recommendSongs.length}}"></song-menu>
+<song-menu title="热门歌单" moreText="更多" recommendSongList="{{hotSongList}}" wx:if="{{hotSongList.length &&recommendSongs.length}}"></song-menu>
+
+
+<!-- 巅峰榜 -->
+<view class="ranking-area" wx:if="{{hasData && recommendSongs.length}}">
+  <view class="area-header">  
+    <area-header title="巅峰榜" showMore="{{false}}" ></area-header>
+  </view>
+  <view class="ranking-list">
+    <block wx:for="{{rankingInfos}}" wx:key="id">
+      <view class="ranking-item">
+        <ranking-item itemData="{{item}}" rankName="{{index}}"></ranking-item>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<!-- 播放器 -->
+<view class="placeholder" wx:if="{{songDetail[0].name}}"></view>
+<view class="player-area" wx:if="{{songDetail[0].name}}" bindtap="onPlayerNavTap">
+  <view class="player">
+    <view class="info">
+      <view class="avatar">
+        <image 
+          class="img" 
+          src="{{songDetail[0].al.picUrl}}" mode="widthFix"
+          style="animation-play-state: {{isPlay ? 'running' : 'paused'}}" 
+        ></image>
+      </view>
+      <view class="name">{{songDetail[0].name}}</view>
+    </view>
+    <view class="control">
+      <view class="play" catchtap="onPlayTap">
+        <image class="img" src="/assets/images/music/main-{{isPlay ? 'play' : 'pause' }}.svg" 
+        />
+      </view>
+      <view class="list">
+        <image class="img" src="/assets/images/music/main-list.svg" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>

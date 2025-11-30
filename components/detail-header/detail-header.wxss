@@ -1,0 +1,124 @@
+.detail-header {
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+  box-sizing: border-box;
+  padding: 60rpx;
+  display: flex;
+  flex-direction: column;
+}
+.detail-header .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500rpx;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+.detail-header .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500rpx;
+  z-index: -1;
+} 
+
+/* infos */
+.detail-header .infos {
+  display: flex;
+  gap: 40rpx;
+  color: #fff;
+  height: 250rpx;
+}
+   /* left */
+.detail-header .infos .left {
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.detail-header .infos .left .img{
+  width: 100%;
+  height: 100%;
+}
+
+  /* right */
+.detail-header .infos .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  font-size: 34rpx;
+}
+
+.detail-header .infos .right .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.detail-header .infos .right .author {
+  display: flex;
+  gap: 20rpx;
+  align-items: center;
+}
+.detail-header .infos .right .author .avatar {
+  width: 70rpx;
+}
+.detail-header .infos .right .author .avatar .img{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.detail-header .infos .right .author .name {
+  font-size: 26rpx;
+}
+.detail-header .infos .right .desc {
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* operations */
+.detail-header .operations {
+  flex: 1;
+  display: flex;
+  align-items:flex-end;
+  justify-content: space-around;
+  color: #fff;
+}
+.detail-header .operations .favor {
+  display: flex;
+  gap: 10rpx;
+}
+.detail-header .operations .favor .icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+.detail-header .operations .favor .icon .img {
+  width: 100%;
+  height: 100%;
+}
+.detail-header .operations .favor .num {
+  line-height: 1.7;
+}
+
+.detail-header .operations .share .icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+.detail-header .operations .share .icon .img {
+  width: 100%;
+  height: 100%;
+}
+

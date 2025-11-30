@@ -1,0 +1,12 @@
+<wxs src="../../utils/format.wxs" module="fmt"></wxs>
+<view class="song-item-v2" bindtap="onSongItem">
+  <view class="top">
+    <view class="img">
+      <image class="img2" src="{{songData.coverImgUrl}}" mode="widthFix"></image>
+    </view>
+    <text class="play-count">{{fmt.changeCount(songData.playCount)}}</text>
+  </view>
+  <view class="bottom">
+    <text class="description">{{songData.description}}</text>
+  </view>
+</view>

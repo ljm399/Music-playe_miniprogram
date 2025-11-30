@@ -1,0 +1,33 @@
+.song-item-v3 {
+  display: flex;
+}
+.song-item-v3 .index {
+  padding: 30rpx;
+}
+.song-item-v3 .song-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 36rpx;
+  overflow: hidden;
+}
+
+.song-item-v3 .song-info .song-name {
+  width:360rpx;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-item-v3 .song-info .author {
+  display: flex;
+  gap: 10rpx;
+  font-size: 26rpx;
+}
+
+.song-item-v3 .song-info .author .icon {
+  width: 60rpx;
+}
+.song-item-v3 .song-info .author .icon .img {
+  width: 100%;
+}

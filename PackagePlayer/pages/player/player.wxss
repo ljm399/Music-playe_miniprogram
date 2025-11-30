@@ -1,0 +1,158 @@
+Page {
+  height: 100vh;
+  position: relative;
+}
+.bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(20rpx);
+}
+.player{
+  position: relative;
+}
+
+/* 插槽样式 */
+.tabs{
+  display: flex;
+  color: #ccc;
+}
+.tabs .line {
+  margin: 0 10rpx;
+}
+
+.tabs .songInfo.active{
+  color: #fff;
+}
+
+/* content样式 */
+.content{
+  color:#fff;
+}
+/* swiper样式 */
+.swiper{
+  height: auto;
+}
+.swiper-song{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 50rpx;
+}
+.swiper-song .cover{
+  flex: 1;
+}
+.swiper-song .img{
+  max-height: 680rpx;
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.swiper-song .song-info{
+  margin: 25rpx 0;
+}
+.swiper-song .song-info .name {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+.swiper-song .song-info .artist {
+  font-size: 28rpx;
+  margin: 10rpx 0;
+}
+.swiper-song .song-info .lyric {
+  box-sizing: border-box;
+  padding: 0 70rpx;
+  font-size: 30rpx;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+/* 进度条 */
+.swiper-song .progress{
+  margin-bottom:20rpx;
+}
+
+.swiper-song .progress .time{
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+/* 控制器 */
+.swiper-song .controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  height: 200rpx;
+}
+
+.swiper-song .controls .mode,.swiper-song .controls .playlist{
+  width: 50rpx;
+  height: 50rpx;
+}
+.swiper-song .controls .mode .img,.swiper-song .controls .prev .img,.swiper-song .controls .play .img,.swiper-song .controls .next .img,.swiper-song .controls .playlist .img{
+  width: 100%;
+  height: 100%;
+}
+.swiper-song .controls .prev,.swiper-song .controls .next{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.swiper-song .controls .play{
+  width: 120rpx;
+  height: 120rpx;
+}
+.swiper-song .controls .play.enlargeImg .img{
+  transform: scale(1.2);
+}
+
+/* 全部歌词展示 */
+.swiper-lyric{
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.swiper-lyric .lyrics {
+  height: 100%;
+}
+.swiper-lyric .lyrics .lyrics-item{
+  box-sizing: border-box;
+  padding: 0 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 10px 0;
+}
+.swiper-lyric .lyrics .lyrics-item.active{
+  color: greenyellow;
+}
+
+  
+
+
+
+
+
+
+  

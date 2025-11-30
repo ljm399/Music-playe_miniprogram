@@ -1,0 +1,13 @@
+.video-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.video-list .item {
+  width: 48%;
+  padding-bottom: 30rpx;
+}
+

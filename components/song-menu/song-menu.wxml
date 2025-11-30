@@ -1,0 +1,17 @@
+<view class="hot-song">
+  <view class="area-header">  
+    <area-header title="{{title}}" moreText="{{moreText}}" bind:moretap="onMoreTap"></area-header>
+  </view>
+  <scroll-view 
+    class="hot-list" 
+    scroll-x
+    enable-flex
+    style="width: {{screenWidth}}px;"
+    >
+    <block wx:for="{{recommendSongList}}" wx:key="id">
+      <view class="hot-item">
+        <song-item-v2 songData="{{item}}"></song-item-v2>
+      </view>
+    </block>
+  </scroll-view>
+</view>

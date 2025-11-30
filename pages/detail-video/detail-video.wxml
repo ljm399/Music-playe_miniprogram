@@ -1,0 +1,23 @@
+<video 
+  src="{{mvUrl}}"
+  autoplay 
+  referrer-policy="origin"
+  danmu-list="{{danmuList}}"
+></video>
+
+<view class="content">
+  <view class="title">{{mvTitle}}</view>
+  <list class="related-content">
+    <block wx:for="{{relatedData}}" wx:key="id">
+      <view class="item">
+        <view class="img">
+          <image src="{{item.picture_url}}" ></image>
+        </view>
+        <view class="info">
+          <view class="name">{{item.name}}</view>
+          <view wx:if="{{item.bottom_info}}">{{item.bottom_info.content}}</view>
+        </view>
+      </view>
+    </block>
+  </list>
+</view>

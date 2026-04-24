@@ -7,16 +7,23 @@ App({
     contentHeight:0,
   },
 
-  onLaunch() {
-    // 获取屏幕宽度
-    wx.getSystemInfo({
-      success: res => {
-        this.globalData.screenWidth = res.screenWidth
-        this.globalData.screenHeight = res.screenHeight
-        this.globalData.statusBarHeight = res.statusBarHeight
-        this.globalData.contentHeight = res.screenHeight - res.statusBarHeight - 44
-      }
-    }),
+  async onLaunch() {
+    // 获取屏幕宽度(过期了)
+    // wx.getSystemInfo({
+    //   success: res => {
+    //     console.log(res)
+    //     this.globalData.screenWidth = res.screenWidth
+    //     this.globalData.screenHeight = res.screenHeight
+    //     this.globalData.statusBarHeight = res.statusBarHeight
+    //     this.globalData.contentHeight = res.screenHeight - res.statusBarHeight - 44
+    //   }
+    // }),
+    const windowInfo = await wx.getWindowInfo();
+    console.log('windowInfo:', windowInfo); 
+    this.globalData.screenWidth = windowInfo.screenWidth;
+    this.globalData.screenHeight = windowInfo.screenHeight;
+    this.globalData.statusBarHeight = windowInfo.statusBarHeight;
+    this.globalData.contentHeight = windowInfo.screenHeight - windowInfo.statusBarHeight - 44;
     // 云开发能力初始化
     wx.cloud.init({
       env: 'cloud1-5g8f2khsc6705020',
